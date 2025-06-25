@@ -1,0 +1,49 @@
+.carousel {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.imagemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.legenda {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: var(--ifm-font-color-base); /* ✅ se adapta ao tema */
+  text-align: center;
+}
+
+.botaoSeta {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0054b4;
+  padding: 0;
+  margin: 0 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.botaoSeta:hover {
+  transform: scale(1.2);
+  color: #003d80;
+}
