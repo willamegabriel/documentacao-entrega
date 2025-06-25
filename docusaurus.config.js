@@ -40,7 +40,10 @@ const config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/entrega-social-card.png',
+    metadata: [
+      { name: 'description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
+    ],
     navbar: {
       title: 'eEntrega',
       logo: {
@@ -54,11 +57,11 @@ const config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://github.com/facebook/docusaurus',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {
@@ -86,5 +89,6 @@ const config = {
     },
   },
 };
+
 
 module.exports = config;
