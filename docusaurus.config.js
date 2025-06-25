@@ -43,6 +43,13 @@ const config = {
     image: 'img/entrega-social-card.png',
     metadata: [
       { name: 'description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
+      { property: 'og:title', content: 'eEntrega' },
+      { property: 'og:description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
+      { property: 'og:image', content: 'https://willamegabriel.github.io/documentacao-entrega/img/entrega-social-card.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'eEntrega' },
+      { name: 'twitter:description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
+      { name: 'twitter:image', content: 'https://willamegabriel.github.io/documentacao-entrega/img/entrega-social-card.png' },
     ],
     navbar: {
       title: 'eEntrega',
@@ -72,7 +79,7 @@ const config = {
           items: [
             {
               label: 'Instagram',
-              href: 'https://www.instagram.com/viggosistemas?igsh=MXNnaTd6cjlqaGR1cQ== ',
+              href: 'https://www.instagram.com/viggosistemas?igsh=MXNnaTd6cjlqaGR1cQ==',
             },
             {
               label: 'Site',
@@ -89,6 +96,5 @@ const config = {
     },
   },
 };
-
 
 module.exports = config;

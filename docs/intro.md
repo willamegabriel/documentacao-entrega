@@ -61,3 +61,7 @@ import PrazoCarousel from '@site/src/components/PrazoCarousel';
 Dentro das configurações administrativas, é possível definir se a impressão da entrega será registrada em formato de **48 COLUNAS (CUPOM**) ou **96 COLUNAS (A4)**.
 
 A impressão da entrega conta com as informações necessárias para que a entrega seja feita com precisão, desde nome de participante, endereço e produtos a serem entregues.
+
+import ImpressaoCarousel from '@site/src/components/ImpressaoCarousel';
+
+<ImpressaoCarousel />
