@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
     title: 'Facil de Usar',
-    gif: '/img/facil.gif',
+    gif: 'img/facil.gif',
     description: (
       <>
         Basico e simples, funcionando para qualquer ramo de controle, vinculado diretamente ao seu Caixa permitindo a criação
@@ -15,7 +16,7 @@ const FeatureList = [
   },
   {
     title: 'Entregas Rapidas e Praticas',
-    gif: '/img/entrega.gif',
+    gif: 'img/entrega.gif',
     description: (
       <>
         Dentro do nosso aplicativo o usuario consegue gerenciar suas entregas em um DashBoard 
@@ -25,7 +26,7 @@ const FeatureList = [
   },
   {
     title: 'Organize e Administre',
-    gif: '/img/admin.gif',
+    gif: 'img/admin.gif',
     description: (
       <>
         Com a nossa ferramenta você pode administrar todas as suas entregas de forma
@@ -39,7 +40,7 @@ function Feature({gif, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <img src={gif} alt={title} className={styles.featureSvg} />
+        <img src={useBaseUrl(gif)} alt={title} className={styles.featureSvg} />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>

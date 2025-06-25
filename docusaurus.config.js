@@ -1,5 +1,5 @@
 // @ts-check
-import {themes as prismThemes} from 'prism-react-renderer';
+const prismThemes = require('prism-react-renderer').themes;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,11 +11,11 @@ const config = {
     v4: true,
   },
 
-  url: 'https://seusite.com',
-  baseUrl: '/',
+  url: 'https://willamegabriel.github.io',
+  baseUrl: '/documentacao-entrega/',
 
-  organizationName: 'facebook',
-  projectName: 'docusaurus',
+  organizationName: 'willamegabriel',
+  projectName: 'documentacao-entrega',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -65,10 +65,6 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
-          items: [{label: 'Tutorial', to: '/docs/intro'}],
-        },
-        {
           title: 'Community',
           items: [
             {
@@ -91,4 +87,4 @@ const config = {
   },
 };
 
-export default config;
+module.exports = config;
