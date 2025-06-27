@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[658],{4462:(e,t,s)=>{s.r(t),s.d(t,{default:()=>n});s(6540);var i=s(4848);function n(){return(0,i.jsx)("div",{style:{background:"#000",height:"100vh"},children:(0,i.jsx)("img",{src:"/img/background.png",alt:"teste",style:{width:"100%"}})})}}}]);
