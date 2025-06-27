@@ -4,7 +4,6 @@
  * work well for content-centric websites.
  */
 
-
  :root {
   /* Azul refinado */
   --ifm-color-primary: #0054B4;
@@ -21,13 +20,29 @@
   /* Hero section */
   --ifm-hero-background-color: #0054B4;
   --ifm-hero-text-color: #ffffff;
+
+  /* Cor base do fundo (substituindo branco puro por tom suave) */
+  --ifm-background-color: #f0f4f8; /* tom claro suave, não branco puro */
 }
 
 /* Tema Escuro */
 html[data-theme='dark'] {
   --ifm-color-primary: #E6B800;
-  --ifm-background-color: #001a33;
+  --ifm-background-color: #0b172a; /* azul escuro profundo para o tema escuro */
   --ifm-navbar-background-color: #000f2b;
   --ifm-navbar-link-color: #ffffff;
   --ifm-navbar-link-hover-color: #E6B800;
+}
+
+.footer__links {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer__title {
+  text-align: center;
+}
+
+.footer__link-item {
+  margin: 0 1rem;
 }

@@ -1,23 +1,110 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+:root {
+  --hero-bg-color: #001F4D; /* azul marinho */
+  --tagline-color: #000000; /* preto para a tagline no tema claro */
+  --subtitle-color: #4a5568;
+  --text-color: #B8860B;
+  --doc-text-color: #000000;
+}
+
+[data-theme='dark'] {
+  --hero-bg-color: #0a111c;       /* fundo azul escuro tema escuro */
+  --tagline-color: #a0aec0;       /* cinza claro para a tagline no tema escuro */
+  --subtitle-color: #a0aec0;      /* subtítulo cinza claro tema escuro */
+  --text-color: #ffffff;          /* título branco tema escuro */
+  --doc-text-color: #d1d5db;      /* texto geral cinza claro tema escuro */
+}
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
+  height: 100vh;
   overflow: hidden;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  background-color: var(--hero-bg-color);
+  font-family: "Inter", sans-serif;
+  transition: background-color 1s ease; /* transição mais lenta para sincronizar */
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 2rem;
+  max-width: 600px;
+  color: var(--doc-text-color);
+  transition: color 0.3s ease;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  color: var(--tagline-color); /* usar cor dedicada para tagline */
+  transition: color 0.3s ease;
+}
+
+.buttons > a.button {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.buttons > a.button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Animação da luz passando */
+.light-beam {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: lightMove 1s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes lightMove {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  .subtitle {
+    font-size: 1.25rem;
+  }
+  .buttons > a.button {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+  }
 }

@@ -11,8 +11,8 @@ const config = {
     v4: true,
   },
 
-  url: 'https://willamegabriel.github.io',
-  baseUrl: '/documentacao-entrega/',
+  url: 'http://localhost:3000', // endereço local
+  baseUrl: '/documentacao-entrega/', // base fixa raiz
 
   organizationName: 'willamegabriel',
   projectName: 'documentacao-entrega',
@@ -45,11 +45,11 @@ const config = {
       { name: 'description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
       { property: 'og:title', content: 'eEntrega' },
       { property: 'og:description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
-      { property: 'og:image', content: 'https://willamegabriel.github.io/documentacao-entrega/img/entrega-social-card.png' },
+      { property: 'og:image', content: 'img/entrega-social-card.png' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'eEntrega' },
       { name: 'twitter:description', content: 'Facilitando seu fluxo e controle de Entregas do dia a dia' },
-      { name: 'twitter:image', content: 'https://willamegabriel.github.io/documentacao-entrega/img/entrega-social-card.png' },
+      { name: 'twitter:image', content: 'img/entrega-social-card.png' },
     ],
     navbar: {
       title: 'eEntrega',
@@ -64,11 +64,6 @@ const config = {
           position: 'left',
           label: 'Tutorial',
         },
-        // {
-        //   href: 'https://github.com/facebook/docusaurus',
-        //   label: 'GitHub',
-        //   position: 'right',
-        // },
       ],
     },
     footer: {
