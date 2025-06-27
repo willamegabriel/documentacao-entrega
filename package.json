@@ -1,5 +1,6 @@
 {
   "name": "my-website",
+  "homepage": "https://willamegabriel.github.io/documentacao-entrega",
   "version": "0.0.0",
   "private": true,
   "scripts": {

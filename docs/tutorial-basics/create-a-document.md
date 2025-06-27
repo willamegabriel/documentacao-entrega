@@ -14,6 +14,8 @@ O sistema dispõe de 5 colunas no dashboard, sendo elas:
   - **DESPACHADO**
   - **ENTREGUE**
 
+![Dashboard](/img/documents/dashboard.png)
+
   ### PENDENTE
 
 Representam hoje todas as entregas criadas inicialmente, sejam elas entregas manuais realizadas no próprio módulo ou entregas realizadas no ato de venda direta na frente de caixa (eVendas).
@@ -55,3 +57,5 @@ A tela conta com um filtro prático que consulta todas as entregas já realizada
 O menu gerencial permite marcar múltiplas entregas e realizar a movimentação entre os status de forma rápida, encaminhando várias entregas de uma única vez para SEPARADO, DESPACHADO... Etc.
 
 A tela também dispõe de opções como edição de entregas ou reimpressão de entregas já criadas, função essa que também está presente no menu inicial em forma de atalho Ctrl + I.
+
+![Gerencial](/img/documents/gerencial.png)

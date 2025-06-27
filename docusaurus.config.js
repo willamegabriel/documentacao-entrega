@@ -11,8 +11,8 @@ const config = {
     v4: true,
   },
 
-  url: 'http://localhost:3000', // endereço local
-  baseUrl: '/documentacao-entrega/', // base fixa raiz
+  url: 'https://willamegabriel.github.io',  // URL pública do GitHub Pages
+  baseUrl: '/documentacao-entrega/',        // baseUrl correto para o repositório
 
   organizationName: 'willamegabriel',
   projectName: 'documentacao-entrega',
