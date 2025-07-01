@@ -1,0 +1,116 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0;
+  user-select: none;
+}
+
+.imagemComLegenda {
+  text-align: center;
+  max-width: 500px;
+  flex-shrink: 0;
+}
+
+.image {
+  max-width: 230px; /* tamanho padrão (48 colunas) */
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  user-select: none;
+  pointer-events: none;
+  display: block;
+  margin: 0 auto;
+  /* Remove transition aqui para usar keyframes */
+}
+
+/* Classe especial para a imagem A4 maior */
+.imagemA4 {
+  max-width: 500px; /* aumenta um pouco a imagem A4 */
+}
+
+/* Legenda */
+.caption {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--ifm-font-color-base, #333); /* Usa a cor do tema, fallback #333 */
+  user-select: none;
+}
+
+/* Botões de seta */
+.botaoSeta {
+  font-size: 22px;     /* tamanho das setas */
+  padding: 5px 8px;    /* espaçamento interno */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  color: #333;         /* cor discreta */
+  transition: color 0.2s ease;
+}
+
+.botaoSeta:hover {
+  color: #007acc;      /* cor ao passar mouse */
+}
+
+/* Animações de saída */
+.slideOutLeft {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slideOutRight {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animações de entrada usando keyframes para mais controle */
+.slideInLeft {
+  animation: slideInLeftAnim 0.3s forwards;
+  opacity: 1;
+}
+
+.slideInRight {
+  animation: slideInRightAnim 0.3s forwards;
+  opacity: 1;
+}
+
+@keyframes slideInLeftAnim {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRightAnim {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Classe genérica caso precise */
+.slideIn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.theme-light .caption {
+  color: #333;
+}
+
+.theme-dark .caption {
+  color: #eee;
+}

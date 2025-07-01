@@ -52,9 +52,9 @@ Dentre essas funções o sistema fornece a possibilidade de controlar o
 
 **Exemplo Prático:** Ainda usando a entrega que vence em 20/06/2025, se você configurar o Prazo Limite como 2 dias, o card da entrega ficará laranja a partir do dia 18/06/2025.
 
-import PrazoCarousel from '@site/src/components/PrazoCarousel';
+import ImageCarousel from '@site/src/components/ImageCarousel';
 
-<PrazoCarousel />
+<ImageCarousel />
 
 ## Gerencie Suas Impressões
 
@@ -65,3 +65,12 @@ A impressão da entrega conta com as informações necessárias para que a entre
 import ImpressaoCarousel from '@site/src/components/ImpressaoCarousel';
 
 <ImpressaoCarousel />
+
+## Cadastro de Entregador
+
+Ainda dentro do Admin, caso eles ainda não existam, precisaremos criar alguns entregadores que serão responsáveis pela movimentação dessas entregas no nosso fluxo.
+Para realizar esse cadastro, basta acessar o seguinte caminho:
+
+**Cadastros > Pedidos > Entregador**
+
+Dentro deste menu realizaremos a criação dos entregadores que serão exibidos nas respectivas impressões e no dashboard de controle.

@@ -1,13 +1,15 @@
 import React, { useState, useRef } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import styles from './ImageCarousel.module.css'; // reaproveitando estilos
+import styles from './ImageCarousel.module.css';
 
 const imagens = [
-  { src: 'img/impressao/48-colunas.png', legenda: 'Modelo de Impressão 48 COLUNAS (CUPOM)' },
-  { src: 'img/impressao/96-colunas.png', legenda: 'Modelo de Impressão 96 COLUNAS (A4)' },
+  { src: 'img/prazos/em-dia.png', legenda: 'Entrega em Dia' },
+  { src: 'img/prazos/prazo-medio.png', legenda: 'Prazo Médio (Amarelo)' },
+  { src: 'img/prazos/prazo-limite.png', legenda: 'Prazo Limite (Laranja)' },
+  { src: 'img/prazos/em-atraso.png', legenda: 'Em Atraso (Vermelho)' }
 ];
 
-export default function ImpressaoCarousel() {
+export default function ImageCarousel() {
   const [index, setIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState(null);
@@ -16,22 +18,18 @@ export default function ImpressaoCarousel() {
 
   const changeIndex = (newIndex, dir) => {
     if (animating) return;
-
     setDirection(dir);
     setAnimating(true);
-
-    // Após a duração da animação, atualiza o índice e limpa os estados de animação
     timeoutRef.current = setTimeout(() => {
       setIndex(newIndex);
       setAnimating(false);
       setDirection(null);
-    }, 300); // tempo da animação em ms, ajuste conforme seu CSS
+    }, 300);
   };
 
   const prev = () => changeIndex(index === 0 ? imagens.length - 1 : index - 1, 'right');
   const next = () => changeIndex(index === imagens.length - 1 ? 0 : index + 1, 'left');
 
-  // Handlers para mouse swipe
   const handleMouseDown = (e) => {
     e.preventDefault();
     if (animating) return;
@@ -44,7 +42,6 @@ export default function ImpressaoCarousel() {
         if (deltaX > 0) prev();
         else next();
         startXRef.current = ev.clientX;
-
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
       }
@@ -59,7 +56,6 @@ export default function ImpressaoCarousel() {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  // Handlers para touch swipe
   const handleTouchStart = (e) => {
     if (animating) return;
     startXRef.current = e.touches[0].clientX;
@@ -103,7 +99,7 @@ export default function ImpressaoCarousel() {
                 ? styles.slideOutLeft
                 : styles.slideOutRight
               : styles.slideIn
-          } ${index === 1 ? styles.imagemA4 : ''}`}
+          }`}
           draggable="false"
         />
         <p className={styles.caption}>{imagens[index].legenda}</p>

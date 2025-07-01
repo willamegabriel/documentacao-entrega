@@ -13,8 +13,10 @@ function HomepageHeader() {
 
   return (
     <header className={clsx(styles.heroBanner)}>
-      <BackgroundSymbol />
-      <div className={styles.lightBeam} />  {/* Luz animada adicionada */}
+      <div className={styles.lightMask}>
+        <BackgroundSymbol />
+        <div className={styles.lightBeam} />
+      </div>
       <div className={styles.content}>
         <h1 className={styles.title}>eEntrega</h1>
         <p className={styles.subtitle}>{siteConfig.tagline}</p>
