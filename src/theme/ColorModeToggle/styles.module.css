@@ -1,33 +1,81 @@
-.toggle {
-  width: 2rem;
-  height: 2rem;
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toggleButton {
-  -webkit-tap-highlight-color: transparent;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 60px;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 🌞 Tema claro — azul original */
+html[data-theme='light'] .toggleButton {
+  background-color: var(--ifm-color-primary); /* mantém o azul padrão */
+}
+
+html[data-theme='light'] .toggleButton .slider {
+  background-color: #eaeaea;
+}
+
+html[data-theme='light'] .toggleButton .icon {
+  color: orange;
+}
+
+/* 🌙 Tema escuro — visual escurecido personalizado */
+html[data-theme='dark'] .toggleButton {
+  background-color: #2a2a2a; /* fundo escuro discreto */
+}
+
+html[data-theme='dark'] .toggleButton .slider {
+  background-color: #eee;
+}
+
+html[data-theme='dark'] .toggleButton .icon {
+  color: orange;
+}
+
+.slider {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  transition: background var(--ifm-transition-fast);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  perspective: 500px;
 }
 
-.toggleButton:hover {
-  background: var(--ifm-color-emphasis-200);
+/* Movimento da bolinha */
+.toggleButton.dark .slider {
+  transform: translateX(30px);
 }
 
-.toggleIcon {
-  display: none;
+.toggleButton.light .slider {
+  transform: translateX(0);
 }
 
-[data-theme-choice='system'] .systemToggleIcon,
-[data-theme-choice='light'] .lightToggleIcon,
-[data-theme-choice='dark'] .darkToggleIcon {
-  display: initial;
+.flipping {
+  transform: rotateY(180deg) translateX(30px);
 }
 
-.toggleButtonDisabled {
-  cursor: not-allowed;
+.icon {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
 }

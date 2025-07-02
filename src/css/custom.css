@@ -53,3 +53,69 @@ article img {
   max-width: 100%;
   height: auto;
 }
+
+html[data-theme='light'] .navbar__brand .logo-icon {
+  fill: #333;          /* deixa o ícone escuro no tema claro */
+  margin-right: 8px;   /* afasta do texto eEntrega */
+}
+
+.navbar__brand img {
+  margin-right: 20px; /* Aumente ou reduza conforme o espaçamento desejado */
+  border: 2px solid white; /* ou outra cor que contraste com a navbar */
+  border-radius: 4px;       /* opcional: deixa os cantos arredondados */
+  padding: 2px;             /* opcional: dá um respiro entre a imagem e a borda */
+  background-color: transparent; /* garante que o fundo da imagem não interfira */
+  height: 36px;
+  margin-right: 10px; /* espaço à direita da logo */
+  display: block; /* evita comportamento inline estranho */
+}
+
+.navbar__items {
+  margin-left: 12px; /* Opcional: ajusta o espaço entre os itens */
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center; /* Garante alinhamento vertical */
+}
+
+/* Estilo do botão de troca de tema */
+.navbar__item .clean-btn {
+  background-color: transparent;
+  border: 1px solid #888;
+  border-radius: 6px;
+  padding: 6px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo padrão do botão */
+.navbar__items > button {
+  background-color: transparent;
+  border: 1px solid #888;
+  border-radius: 6px;
+  padding: 6px;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .toggleButton {
+    width: 52px;
+    height: 26px;
+  }
+
+  .slider {
+    width: 22px;
+    height: 22px;
+    top: 2px;
+    left: 2px;
+  }
+
+  .toggleButton.dark .slider {
+    transform: translateX(26px);
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import {translate} from '@docusaurus/Translate';
 import clsx from 'clsx';
@@ -23,23 +23,11 @@ function getNextColorMode(colorMode, respectPrefersColorScheme) {
 function getColorModeLabel(colorMode) {
   switch (colorMode) {
     case null:
-      return translate({
-        message: 'system mode',
-        id: 'theme.colorToggle.ariaLabel.mode.system',
-        description: 'The name for the system color mode',
-      });
+      return translate({message: 'system mode'});
     case 'light':
-      return translate({
-        message: 'light mode',
-        id: 'theme.colorToggle.ariaLabel.mode.light',
-        description: 'The name for the light color mode',
-      });
+      return translate({message: 'light mode'});
     case 'dark':
-      return translate({
-        message: 'dark mode',
-        id: 'theme.colorToggle.ariaLabel.mode.dark',
-        description: 'The name for the dark color mode',
-      });
+      return translate({message: 'dark mode'});
     default:
       throw new Error(`unexpected color mode ${colorMode}`);
   }
@@ -49,12 +37,10 @@ function getColorModeAriaLabel(colorMode) {
   return translate(
     {
       message: 'Switch between dark and light mode (currently {mode})',
-      id: 'theme.colorToggle.ariaLabel',
-      description: 'The ARIA label for the color mode toggle',
     },
     {
       mode: getColorModeLabel(colorMode),
-    },
+    }
   );
 }
 
@@ -68,58 +54,67 @@ function ColorModeToggle({
   const isBrowser = useIsBrowser();
   const isDark = value === 'dark';
 
+  const [flipping, setFlipping] = useState(false);
+
+  const handleToggle = () => {
+    setFlipping(true);
+    setTimeout(() => {
+      onChange(getNextColorMode(value, respectPrefersColorScheme));
+    }, 150);
+    setTimeout(() => setFlipping(false), 400);
+  };
+
   return (
-    <div className={clsx(styles.toggle, className)}>
+    <div className={clsx(styles.toggleWrapper, className)}>
       <button
         className={clsx(
-          'clean-btn',
           styles.toggleButton,
-          !isBrowser && styles.toggleButtonDisabled,
-          buttonClassName,
+          isDark ? styles.dark : styles.light,
+          buttonClassName
         )}
-        type="button"
-        onClick={() =>
-          onChange(getNextColorMode(value, respectPrefersColorScheme))
-        }
+        onClick={handleToggle}
         disabled={!isBrowser}
-        title={getColorModeLabel(value)}
         aria-label={getColorModeAriaLabel(value)}
+        title={getColorModeLabel(value)}
+        type="button"
       >
-        {isDark ? (
-          // Ícone do Sol (modo claro)
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.8}
-            stroke="currentColor"
-            width="24"
-            height="24"
-          >
-            <path
+        <div className={clsx(styles.slider, flipping && styles.flipping)}>
+          {isDark ? (
+            <svg
+              className={styles.icon}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="currentColor"
+            >
+              <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+            </svg>
+          ) : (
+            <svg
+              className={styles.icon}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="currentColor"
+              stroke="orange"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414M18.364 18.364l-1.414-1.414M6.05 6.05 4.636 7.464M12 8a4 4 0 100 8 4 4 0 000-8z"
-            />
-          </svg>
-        ) : (
-          // Ícone da Lua (modo escuro) com stroke branco
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.8}
-            stroke="white"
-            width="24"
-            height="24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
-            />
-          </svg>
-        )}
+            >
+              <circle cx="12" cy="12" r="5" fill="currentColor" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          )}
+        </div>
       </button>
     </div>
   );

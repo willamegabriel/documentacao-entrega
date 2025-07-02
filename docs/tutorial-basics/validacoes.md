@@ -1,4 +1,6 @@
 ---
+id: validacoes
+title: Validações e Regras
 sidebar_position: 6
 ---
 

@@ -1,4 +1,6 @@
 ---
+id: cancelamento
+title: Cancelamento de Entrega
 sidebar_position: 3
 ---
 

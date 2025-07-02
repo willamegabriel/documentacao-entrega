@@ -1,4 +1,6 @@
 ---
+id: relatorios
+title: Relatórios e Indicadores
 sidebar_position: 5
 ---
 

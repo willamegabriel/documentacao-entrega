@@ -30,6 +30,7 @@ const config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/', // ✅ os docs estarão disponíveis diretamente na raiz do site
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
